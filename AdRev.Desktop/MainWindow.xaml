@@ -14,6 +14,24 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         FontFamily="{DynamicResource MaterialDesignFont}">
 
+    <Window.Icon>
+        <DrawingImage>
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Geometry="M54,26L34,36V56C34,68.3 42.5,79.8 54,82.7C65.5,79.8 74,68.3 74,56V36L54,26Z">
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#6366F1" Offset="0.0"/>
+                                <GradientStop Color="#8B5CF6" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="M46,48 L54,52 L62,48 M54,52 V64 M48,64 H60" StrokeThickness="3.5" Stroke="#FFFFFF" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+    </Window.Icon>
+
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="60" ResizeBorderThickness="5" GlassFrameThickness="0" CornerRadius="0"/>
     </WindowChrome.WindowChrome>

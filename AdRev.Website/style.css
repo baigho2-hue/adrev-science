@@ -310,18 +310,47 @@ nav {
     justify-content: center;
 }
 
-.check-list li {
-    margin-bottom: 0.8rem;
+/* Collect Mobile Extension */
+.feature-pills {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.pill {
+    padding: 0.4rem 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--primary-glow);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.check-list {
+    margin-top: 2rem;
+}
+
+.check-list li {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
     font-size: 1rem;
+    color: var(--text-main);
+}
+
+.check-list li strong {
+    color: var(--primary);
+    display: block;
 }
 
 .check-list li::before {
-    content: '✓';
-    color: var(--secondary);
+    content: '✦';
+    color: var(--primary);
     font-weight: 900;
+    margin-top: 2px;
 }
 
 /* Pricing */
