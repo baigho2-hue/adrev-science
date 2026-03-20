@@ -26,7 +26,11 @@
                             </LinearGradientBrush>
                         </GeometryDrawing.Brush>
                     </GeometryDrawing>
-                    <GeometryDrawing Geometry="M46,48 L54,52 L62,48 M54,52 V64 M48,64 H60" StrokeThickness="3.5" Stroke="#FFFFFF" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    <GeometryDrawing Geometry="M46,48 L54,52 L62,48 M54,52 V64 M48,64 H60">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="#FFFFFF" Thickness="3.5" StartLineCap="Round" EndLineCap="Round"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
                 </DrawingGroup>
             </DrawingImage.Drawing>
         </DrawingImage>

@@ -9,6 +9,7 @@ namespace AdRev.Desktop.Views.Project
 {
     public partial class ProjectListView : UserControl
     {
+        private readonly AdRev.Core.Common.ResearchProjectService _projectService = new AdRev.Core.Common.ResearchProjectService();
         public ObservableCollection<ProjectViewModel> RecentProjects { get; set; } = new ObservableCollection<ProjectViewModel>();
         public ObservableCollection<ProjectViewModel> AllProjects { get; set; } = new ObservableCollection<ProjectViewModel>();
 
@@ -24,25 +25,36 @@ namespace AdRev.Desktop.Views.Project
 
         private void InitializeData()
         {
-            // Seed Recent Projects (7 items)
+            // The user requested to clear all test/seed projects from the list.
             RecentProjects.Clear();
-            RecentProjects.Add(new ProjectViewModel { Name = "Étude Diabète Type 2 - Phase 1", Type = "Cohorte", Status = "En cours", LastModified = "Aujourd'hui, 09:30" });
-            RecentProjects.Add(new ProjectViewModel { Name = "Essai Clinique Cardio", Type = "Interventionnel", Status = "Brouillon", LastModified = "Hier, 14:15" });
-            RecentProjects.Add(new ProjectViewModel { Name = "Revue Systématique Ebola", Type = "Méta-analyse", Status = "Terminé", LastModified = "10 Jan 2024" });
-            RecentProjects.Add(new ProjectViewModel { Name = "Enquête Sante Publique Mali", Type = "Transversale", Status = "En cours", LastModified = "08 Jan 2024" });
-            RecentProjects.Add(new ProjectViewModel { Name = "Analyse Qualitative Stress", Type = "Phénoménologique", Status = "Terminé", LastModified = "05 Jan 2024" });
-            RecentProjects.Add(new ProjectViewModel { Name = "Audit Clinique Urgences", Type = "Audit", Status = "En cours", LastModified = "02 Jan 2024" });
-            RecentProjects.Add(new ProjectViewModel { Name = "Étude Pilote Vaccin", Type = "Pilote", Status = "Brouillon", LastModified = "28 Dec 2023" });
-
-            // Seed All Projects (More items)
             AllProjects.Clear();
-            foreach(var p in RecentProjects) AllProjects.Add(p);
+
+            // Load real projects from disk instead of hardcoded seeds
+            var projects = _projectService.GetAllProjects().OrderByDescending(p => p.CreatedOn).ToList();
             
-            AllProjects.Add(new ProjectViewModel { Name = "Étude Nutritionnelle 2023", Type = "Transversale", Status = "Archivé", LastModified = "15 Nov 2023" });
-            AllProjects.Add(new ProjectViewModel { Name = "Recherche Cancer du Sein", Type = "Case-Control", Status = "Terminé", LastModified = "30 Oct 2023" });
-            AllProjects.Add(new ProjectViewModel { Name = "Enquête Satisfaction Patient", Type = "Qualitative", Status = "Archivé", LastModified = "20 Sep 2023" });
-            AllProjects.Add(new ProjectViewModel { Name = "Projet VIH/SIDA Nord", Type = "Cohorte", Status = "Suspendu", LastModified = "10 Aout 2023" });
-            AllProjects.Add(new ProjectViewModel { Name = "Formation Hygiène Hospitalière", Type = "Interventionnel", Status = "Terminé", LastModified = "05 Juil 2023" });
+            foreach (var p in projects.Take(7))
+            {
+                RecentProjects.Add(new ProjectViewModel
+                {
+                    Name = p.Title,
+                    Type = p.StudyType.ToString(),
+                    Status = p.Status.ToString(),
+                    LastModified = p.CreatedOn.ToString("g"),
+                    Project = p
+                });
+            }
+
+            foreach (var p in projects)
+            {
+                AllProjects.Add(new ProjectViewModel
+                {
+                    Name = p.Title,
+                    Type = p.StudyType.ToString(),
+                    Status = p.Status.ToString(),
+                    LastModified = p.CreatedOn.ToString("g"),
+                    Project = p
+                });
+            }
         }
 
         private void OpenProject_Click(object sender, RoutedEventArgs e)
