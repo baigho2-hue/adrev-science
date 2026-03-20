@@ -22,11 +22,12 @@ jobs:
         run: dotnet workload install maui-maccatalyst
 
       - name: Restore dependencies
-        run: dotnet restore AdRev.Mobile/AdRev.Mobile.csproj
+        run: dotnet restore AdRev.Mobile/AdRev.Mobile.csproj -p:TargetFramework=net9.0-maccatalyst
 
       - name: Build and Publish MacCatalyst (Universal)
         run: |
-          dotnet publish AdRev.Mobile/AdRev.Mobile.csproj -f net9.0-maccatalyst -c Release -p:CreatePackage=true -o bin/publish/mac
+          dotnet publish AdRev.Mobile/AdRev.Mobile.csproj -f net9.0-maccatalyst -c Release -p:CreatePackage=true -o bin/publish/mac -p:RuntimeIdentifier=maccatalyst-arm64 --self-contained true
+
           
       - name: Create DMG
         run: |
