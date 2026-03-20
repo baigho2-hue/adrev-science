@@ -22,17 +22,17 @@ jobs:
         run: dotnet workload install maui-maccatalyst
 
       - name: Restore dependencies
-        run: dotnet restore AdRev.Mobile/AdRev.Mobile.csproj -p:TargetFramework=net9.0-maccatalyst
+        run: dotnet restore AdRev.sln -p:TargetFramework=net9.0-maccatalyst
 
       - name: Build and Publish MacCatalyst (Universal)
         run: |
-          dotnet publish AdRev.Mobile/AdRev.Mobile.csproj -f net9.0-maccatalyst -c Release -p:CreatePackage=true -o bin/publish/mac -p:RuntimeIdentifier=maccatalyst-arm64 --self-contained true
+          dotnet publish AdRev.Mobile/AdRev.Mobile.csproj -f net9.0-maccatalyst -c Release -p:CreatePackage=true -o bin/publish/mac --self-contained true
 
           
       - name: Create DMG
         run: |
           mkdir -p bin/publish/dmg
-          cp -R bin/publish/mac/AdRev_Collect.app bin/publish/dmg/
+          cp -R "bin/publish/mac/AdRev Collect.app" bin/publish/dmg/
           hdiutil create -volname "AdRev Collect" -srcfolder bin/publish/dmg -ov -format UDZO AdRev_Collect_Universal.dmg
 
       - name: Upload DMG Artifact
