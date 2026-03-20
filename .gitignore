@@ -39,9 +39,7 @@ dist/
 .env*
 .DS_Store
 
-# Exclure le génrateur de licences (Outil interne confidentiel)
+
+# Exclure le générateur de licences (Outil interne confidentiel)
 AdRev.LicenseGenerator/
 
-# Exclure les projets de déploiement et mobiles
-AdRev.Setup/
-AdRev.Mobile/

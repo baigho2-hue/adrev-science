@@ -1,0 +1,6 @@
+<WixLocalization Culture="en-US" xmlns="http://wixtoolset.org/schemas/v4/wxl">
+  <String Id="DowngradeError" Value="A newer version of AdRev Desktop is already installed." />
+  <String Id="ProductName" Value="AdRev Desktop" />
+  <String Id="BundleName" Value="AdRev Desktop Setup" />
+  <String Id="FeatureTitle" Value="AdRev Desktop" />
+</WixLocalization>

@@ -1,0 +1,14 @@
+AVIS DE NON-RESPONSABILITÉ - IMPORTANT
+
+AdRev est un logiciel d'aide à la recherche scientifique et à la collecte de données.
+
+1. EXACTITUDE DES RÉSULTATS
+Bien que nous nous efforcions de garantir la fiabilité du logiciel, AdRev Team ne garantit pas l'exactitude absolue des rapports générés ou des analyses statistiques. Il incombe à l'utilisateur de vérifier ses résultats.
+
+2. PERTE DE DONNÉES
+L'utilisateur est responsable de la sauvegarde régulière de ses projets. AdRev Team ne pourra être tenu responsable de toute perte de données, qu'elle soit due à une erreur logicielle, une panne matérielle ou une mauvaise manipulation.
+
+3. CONFORMITÉ ÉTHIQUE ET LÉGALE
+L'utilisateur est seul responsable de s'assurer que sa collecte de données respecte les lois en vigueur (RGPD, lois locales sur la protection des données de santé) et les normes éthiques de son institution.
+
+En poursuivant l'installation, vous reconnaissez avoir pris connaissance de ces avertissements.

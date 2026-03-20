@@ -1,0 +1,21 @@
+CONTRAT DE LICENCE UTILISATEUR FINAL (CLUF) POUR ADREV
+
+IMPORTANT : VEUILLEZ LIRE ATTENTIVEMENT CE CONTRAT AVANT D'INSTALLER OU D'UTILISER CE LOGICIEL.
+
+1. CONCESSION DE LICENCE
+AdRev Team vous accorde une licence non exclusive et incessible pour utiliser le logiciel "AdRev" à des fins professionnelles ou de recherche.
+
+2. PROPRIÉTÉ INTELLECTUELLE
+Le logiciel est protégé par les lois sur le droit d'auteur et les traités internationaux. AdRev Team conserve tous les droits de propriété intellectuelle.
+
+3. EXCLUSION DE GARANTIE
+Le logiciel est fourni "TEL QUEL", sans aucune garantie d'aucune sorte, expresse ou implicite. 
+
+4. LIMITATION DE RESPONSABILITÉ
+En aucun cas, AdRev Team ne pourra être tenu responsable des dommages directs, indirects, accessoires ou consécutifs résultant de l'utilisation ou de l'impossibilité d'utiliser le logiciel.
+
+5. RESPONSABILITÉ DES DONNÉES
+L'utilisateur est seul responsable de l'exactitude, de l'intégrité et de la sécurité des données saisies, collectées et analysées via AdRev.
+AdRev est un outil technique : il ne remplace pas le jugement professionnel du chercheur.
+
+En installant ce logiciel, vous acceptez d'être lié par les termes de ce contrat.

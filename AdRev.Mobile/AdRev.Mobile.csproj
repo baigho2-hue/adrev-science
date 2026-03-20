@@ -1,0 +1,75 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net9.0-android;net9.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>AdRev.Mobile</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		
+		<!-- MacCatalyst specific -->
+		<RuntimeIdentifier Condition="'$(TargetPlatformIdentifier)' == 'maccatalyst'">maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifier>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+
+		<!-- Display name -->
+		<ApplicationTitle>AdRev Collect</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.adrev.mobile</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.5</ApplicationDisplayVersion>
+		<ApplicationVersion>3</ApplicationVersion>
+
+		<!-- Définir le min SDK Android -->
+		<SupportedOSPlatformVersion>23.0</SupportedOSPlatformVersion>
+        
+        <!-- Fix for multiple dex definitions sometimes -->
+        <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+        
+        <!-- Avoid warnings about implicit package references -->
+        <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- MAUI Resources -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiImage Include="Resources\Images\*" />
+		<MauiFont Include="Resources\Fonts\*" />
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Reference to Domain for shared models -->
+		<ProjectReference Include="..\AdRev.Domain\AdRev.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BarcodeScanner.Mobile.Maui" Version="9.0.1" />
+		<PackageReference Include="Plugin.InAppBilling" Version="7.1.0" />
+		
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        
+        <!-- Explicitly adding these to unify the AndroidX versions and resolve conflicts -->
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.9.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime.Ktx" Version="2.9.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.9.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.9.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.9.2.1" />
+        
+        <PackageReference Include="Xamarin.AndroidX.SavedState" Version="1.3.1.1" />
+        <!-- Note: SavedState.Ktx might be pulling in the same classes as SavedState 1.3.1.1 -->
+        <!-- We try to force it to a compatible version or omit it if possible, but let's try matching version first -->
+        <PackageReference Include="Xamarin.AndroidX.SavedState.SavedState.Ktx" Version="1.3.1.1" />
+        
+        <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.8.8.1" />
+        <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.8.8.1" />
+	</ItemGroup>
+
+</Project>

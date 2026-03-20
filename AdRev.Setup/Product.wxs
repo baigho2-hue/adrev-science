@@ -1,0 +1,31 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="AdRev Desktop" Manufacturer="AdRev Team" Version="1.0.0.0" UpgradeCode="B0807755-6E58-4856-8344-93C372153AD5">
+    <MajorUpgrade DowngradeErrorMessage="Une version plus récente d'AdRev Desktop est déjà installée." />
+    
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="AdRev">
+        <!-- Main Executable Component -->
+        <Component Id="MainExecutable" Guid="3E38F686-2E75-4C34-8A6B-9F2248550293">
+          <File Id="AdRev.Desktop.exe" Source="..\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\AdRev.Desktop.exe" KeyPath="yes">
+            <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="AdRev Desktop" WorkingDirectory="INSTALLFOLDER" Advertise="yes" Icon="AdRevIcon.exe" />
+            <Shortcut Id="StartMenuShortcut" Directory="ProgramMenuFolder" Name="AdRev Desktop" WorkingDirectory="INSTALLFOLDER" Advertise="yes" Icon="AdRevIcon.exe" />
+          </File>
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <!-- Shortcuts Directories -->
+    <StandardDirectory Id="DesktopFolder" />
+    <StandardDirectory Id="ProgramMenuFolder" />
+
+    <!-- Features -->
+    <Feature Id="ProductFeature" Title="AdRev Desktop" Level="1">
+      <ComponentRef Id="MainExecutable" />
+    </Feature>
+
+    <!-- Icon -->
+    <Icon Id="AdRevIcon.exe" SourceFile="..\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\AdRev.Desktop.exe" />
+  </Package>
+</Wix>

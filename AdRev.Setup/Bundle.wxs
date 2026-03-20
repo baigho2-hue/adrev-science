@@ -1,0 +1,12 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+  <Bundle Name="!(loc.BundleName)" Manufacturer="AdRev Team" Version="$(var.Version)" UpgradeCode="12345678-1234-1234-1234-123456789012" Compressed="yes">
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication LicenseUrl="https://www.example.com/license" Theme="hyperlinkLicense" />
+    </BootstrapperApplication>
+
+    <Chain>
+	  <!-- TODO: Add .NET 8 Prerequisite check here once we have the PackageIdentity -->
+      <MsiPackage SourceFile="$(var.MsiSource)" />
+    </Chain>
+  </Bundle>
+</Wix>

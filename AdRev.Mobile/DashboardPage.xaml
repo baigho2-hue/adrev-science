@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AdRev.Mobile.DashboardPage"
+             Title="Tableau de Bord"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <!-- User Profile Header -->
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15" Padding="0,10">
+                <Frame HeightRequest="60" WidthRequest="60" CornerRadius="30" Padding="0" IsClippedToBounds="True" BackgroundColor="#E0E0E0">
+                    <Label Text="👤" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Frame>
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                     <Label x:Name="UserNameLabel" Text="Utilisateur AdRev" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    <HorizontalStackLayout Spacing="5">
+                        <Label x:Name="UserTitleLabel" Text="Chercheur" FontSize="14" TextColor="Gray"/>
+                        <Frame x:Name="LicenseBadge" Padding="5,2" CornerRadius="5" HasShadow="False" VerticalOptions="Center" BackgroundColor="#E0E0E0">
+                            <Label x:Name="LicenseLabel" Text="LITE" FontSize="10" FontAttributes="Bold" TextColor="Gray"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfileTapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <BoxView HeightRequest="1" Color="#E0E0E0"/>
+
+            <!-- Header -->
+            <Label Text="Bienvenue sur AdRev" 
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#512BD4, Dark=White}"
+                   HorizontalOptions="Start" />
+
+            <Label Text="Statistiques de collecte" 
+                   FontSize="16" TextColor="Gray"
+                   HorizontalOptions="Center" />
+
+            <!-- Stats Grid -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                
+                <!-- Total Forms -->
+                <Frame Grid.Row="0" Grid.Column="0" CornerRadius="10" Padding="15" BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+                    <VerticalStackLayout>
+                        <Label Text="Protocoles" FontSize="14" TextColor="Gray"/>
+                        <Label x:Name="FormsCountLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Saved Records -->
+                <Frame Grid.Row="0" Grid.Column="1" CornerRadius="10" Padding="15" BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+                    <VerticalStackLayout>
+                        <Label Text="Données" FontSize="14" TextColor="Gray"/>
+                        <Label x:Name="RecordsCountLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Unsynced (Priority) -->
+                <Frame Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="10" Padding="15" BackgroundColor="{AppThemeBinding Light=#FFE0B2, Dark=#4A3100}" BorderColor="Orange">
+                    <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                        <Label Text="⚠️" FontSize="24" VerticalOptions="Center"/>
+                        <VerticalStackLayout>
+                            <Label Text="À synchroniser" FontSize="14" TextColor="{AppThemeBinding Light=#E65100, Dark=#FFCC80}" FontAttributes="Bold"/>
+                            <Label x:Name="UnsyncedLabel" Text="0 enregistrement(s)" FontSize="18" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Quick Actions -->
+            <Label Text="Actions Rapides" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+
+            <Button Text="Nouvelle Saisie" 
+                    BackgroundColor="#512BD4" TextColor="White"
+                    HeightRequest="50" CornerRadius="25"
+                    Clicked="OnNewEntryClicked"/>
+
+            <Button Text="Synchroniser Maintenant" 
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}" 
+                    TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    BorderColor="#512BD4" BorderWidth="1"
+                    HeightRequest="50" CornerRadius="25"
+                    Clicked="OnSyncClicked"/>
+
+             <!-- Export/Import Actions -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10">
+                 <Button Grid.Row="0" Grid.Column="0" Text="Exporter Projet" 
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                        BorderColor="Gray" BorderWidth="1"
+                        HeightRequest="50" CornerRadius="25"
+                        Clicked="OnExportClicked"/>
+
+                 <Button Grid.Row="0" Grid.Column="1" Text="Importer Projet" 
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#2D2D2D}"
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                        BorderColor="Gray" BorderWidth="1"
+                        HeightRequest="50" CornerRadius="25"
+                        Clicked="OnImportClicked"/>
+
+                 <Button Grid.Row="1" Grid.ColumnSpan="2" Text="📊 Importer Masque CSV" 
+                        BackgroundColor="#2E7D32" 
+                        TextColor="White"
+                        HeightRequest="50" CornerRadius="25"
+                        Clicked="OnImportCsvMaskClicked"/>
+            </Grid>
+            
+            <!-- Upgrade to PRO Section -->
+            <Frame x:Name="UpgradeFrame" CornerRadius="10" Padding="15" BackgroundColor="#E3F2FD" BorderColor="#2196F3" IsVisible="False">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🚀 Passez à la vitesse supérieure !" FontAttributes="Bold" TextColor="#0D47A1" HorizontalOptions="Center"/>
+                    <Label Text="Débloquez les projets illimités et l'exportation Excel avancée avec AdRev Pro." FontSize="13" TextColor="#1565C0" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Button Text="Débloquer AdRev Pro" BackgroundColor="#2196F3" TextColor="White" HeightRequest="40" CornerRadius="20" Clicked="OnUpgradeClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+            
+            <!-- Footer Links -->
+            <VerticalStackLayout Spacing="5" Margin="0,20,0,10">
+                <Label Text="AdRev Collect v1.5" FontSize="12" TextColor="Gray" HorizontalOptions="Center"/>
+                <Label Text="adrev-landing.onrender.com" FontSize="14" TextColor="#512BD4" HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnWebsiteTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Politique de Confidentialité" FontSize="14" TextColor="#512BD4" TextDecorations="Underline" HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrivacyTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

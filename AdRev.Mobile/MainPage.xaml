@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gv="clr-namespace:BarcodeScanner.Mobile;assembly=BarcodeScanner.Mobile.Maui"
+             x:Class="AdRev.Mobile.MainPage"
+             Title="Jumelage AdRev">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20" RowSpacing="20">
+        <VerticalStackLayout Spacing="15" Grid.Row="0">
+            <Label Text="Connectez-vous à AdRev Desktop" 
+                   FontSize="18" HorizontalOptions="Center" FontAttributes="Bold" />
+            <Label Text="Entrez le code manuellement ou scannez le QR code" 
+                   FontSize="12" HorizontalOptions="Center" TextColor="Gray" />
+            
+            <Entry x:Name="CodeEntry" Placeholder="Code à 6 chiffres" 
+                   Keyboard="Numeric" MaxLength="6" HorizontalOptions="Fill" />
+            
+            <Button Text="Se Connecter" Clicked="OnConnectClicked" BackgroundColor="#512BD4" TextColor="White"/>
+        </VerticalStackLayout>
+        
+        <Border Grid.Row="1" Stroke="Gray" StrokeThickness="1" BackgroundColor="Black">
+            <gv:CameraView x:Name="Camera" 
+                           HorizontalOptions="FillAndExpand" 
+                           VerticalOptions="FillAndExpand" 
+                           OnDetected="OnDetected"
+                           VibrationOnDetected="True" />
+        </Border>
+
+        <Label x:Name="StatusLabel" Grid.Row="2" Text="Prêt à scanner..." HorizontalOptions="Center" />
+    </Grid>
+
+</ContentPage>

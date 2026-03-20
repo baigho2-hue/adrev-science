@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AdRev.Mobile.DataEntryPage"
+             Title="Saisie"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <VerticalStackLayout Spacing="5">
+                <Label x:Name="FormTitleLabel" FontSize="20" FontAttributes="Bold" TextColor="#512BD4" />
+                <Label x:Name="FormDescLabel" FontSize="12" TextColor="Gray" />
+            </VerticalStackLayout>
+            
+            <BoxView HeightRequest="1" Color="LightGray" />
+            
+            <!-- Dynamic Content Container -->
+            <VerticalStackLayout x:Name="QuestionsContainer" Spacing="25">
+                <!-- Fields will be added here dynamically -->
+            </VerticalStackLayout>
+            
+            <Button Text="Enregistrer" 
+                    Clicked="OnSaveClicked" 
+                    BackgroundColor="#512BD4" 
+                    TextColor="White" 
+                    Margin="0,20,0,0"
+                    HeightRequest="50"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
