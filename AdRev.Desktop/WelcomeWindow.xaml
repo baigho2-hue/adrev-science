@@ -89,7 +89,8 @@
                                 <TextBox x:Name="HwidBox" IsReadOnly="True" Height="40" VerticalContentAlignment="Center" FontSize="12" Padding="5" Background="#F5F5F5" FontFamily="Consolas"/>
                                 <Button Grid.Column="1" Content="Copier" Width="50" Height="40" Margin="5,0,0,0" x:Name="CopyHwidBtn" Click="CopyHwid_Click" ToolTip="Copier les infos de commande"/>
                             </Grid>
-                            <TextBlock Text="N'oubliez pas de joindre votre preuve de paiement !" FontSize="10" Foreground="#d9534f" Margin="0,2,0,0" FontStyle="Italic" HorizontalAlignment="Right"/>
+                            <TextBlock Text="À envoyer à : baigho2@gmail.com" FontSize="10" Foreground="{StaticResource PrimaryBrush}" FontWeight="SemiBold" Margin="0,2,0,0" HorizontalAlignment="Right"/>
+                            <TextBlock Text="N'oubliez pas de joindre votre preuve de paiement !" FontSize="9" Foreground="#d9534f" Margin="0,0,0,0" FontStyle="Italic" HorizontalAlignment="Right"/>
                         </StackPanel>
                     </Grid>
 

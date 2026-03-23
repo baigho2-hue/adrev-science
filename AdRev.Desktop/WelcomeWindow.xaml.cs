@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using AdRev.Core.Services;
 using AdRev.Domain.Models;
 using AdRev.Desktop.Services;
@@ -31,10 +31,10 @@ namespace AdRev.Desktop
             }
 
             string type = (LicenseTypeBox.SelectedItem as System.Windows.Controls.ComboBoxItem)?.Content?.ToString() ?? "Standard";
-            string orderRequest = $"COMMAND ADREV\n------------------\nNOM : {NameBox.Text} {TitleBox.Text}\nEMAIL : {EmailBox.Text}\nTYPE : {type}\nHWID : {HwidBox.Text}\nPAIEMENT : [Joindre Capture/Facture]\n------------------";
+            string orderRequest = $"DESTINATAIRE : baigho2@gmail.com\nCOMMAND ADREV\n------------------\nNOM : {NameBox.Text} {TitleBox.Text}\nEMAIL : {EmailBox.Text}\nTYPE : {type}\nHWID : {HwidBox.Text}\nPAIEMENT : [Joindre Capture/Facture]\n------------------";
             
             Clipboard.SetText(orderRequest);
-            MessageBox.Show("Les informations de commande ont été copiées !\nCollez ce message au vendeur pour obtenir votre clé.", "Demande Copiée", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show($"Les informations de commande ont été copiées !\n\nEnvoyez ce message à : baigho2@gmail.com\nAccompagné de votre preuve de paiement pour obtenir votre clé.", "Demande Copiée", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Activate_Click(object sender, RoutedEventArgs e)

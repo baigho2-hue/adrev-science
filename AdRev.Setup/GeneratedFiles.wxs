@@ -80,8 +80,8 @@
           <File Id="File_0_windows_win_x64_publish_Microsoft_Win32_SystemEvents_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\Microsoft.Win32.SystemEvents.dll" KeyPath="yes" />
         </Component>        <Component Id="Comp_0_windows_win_x64_publish_Microsoft_Xaml_Behaviors_dll">
           <File Id="File_0_windows_win_x64_publish_Microsoft_Xaml_Behaviors_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\Microsoft.Xaml.Behaviors.dll" KeyPath="yes" />
-        </Component>        <Component Id="Comp_0_windows_win_x64_publish_mscordaccore_amd64_amd64_9_0_1326_6317_dll">
-          <File Id="File_0_windows_win_x64_publish_mscordaccore_amd64_amd64_9_0_1326_6317_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\mscordaccore_amd64_amd64_9.0.1326.6317.dll" KeyPath="yes" />
+        </Component>        <Component Id="Comp_0_windows_win_x64_publish_mscordaccore_amd64_amd64_9_0_1426_11910_dll">
+          <File Id="File_0_windows_win_x64_publish_mscordaccore_amd64_amd64_9_0_1426_11910_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\mscordaccore_amd64_amd64_9.0.1426.11910.dll" KeyPath="yes" />
         </Component>        <Component Id="Comp_0_windows_win_x64_publish_mscordaccore_dll">
           <File Id="File_0_windows_win_x64_publish_mscordaccore_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\mscordaccore.dll" KeyPath="yes" />
         </Component>        <Component Id="Comp_0_windows_win_x64_publish_mscordbi_dll">
@@ -531,6 +531,9 @@
         </Component>        <Component Id="Comp_0_windows_win_x64_publish_wpfgfx_cor3_dll">
           <File Id="File_0_windows_win_x64_publish_wpfgfx_cor3_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\wpfgfx_cor3.dll" KeyPath="yes" />
         </Component>
+        <Directory Id="Dir_0_windows_win_x64_publish_AdRev_Desktop_exe_WebView2" Name="AdRev.Desktop.exe.WebView2">
+        </Directory>
+
         <Directory Id="Dir_0_windows_win_x64_publish_cs" Name="cs">
         <Component Id="Comp_0_windows_win_x64_publish_cs_PresentationCore_resources_dll">
           <File Id="File_0_windows_win_x64_publish_cs_PresentationCore_resources_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\cs\PresentationCore.resources.dll" KeyPath="yes" />
@@ -718,6 +721,11 @@
           <File Id="File_0_windows_win_x64_publish_ko_UIAutomationTypes_resources_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\ko\UIAutomationTypes.resources.dll" KeyPath="yes" />
         </Component>        <Component Id="Comp_0_windows_win_x64_publish_ko_WindowsBase_resources_dll">
           <File Id="File_0_windows_win_x64_publish_ko_WindowsBase_resources_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\ko\WindowsBase.resources.dll" KeyPath="yes" />
+        </Component>        </Directory>
+
+        <Directory Id="Dir_0_windows_win_x64_publish_ObfuscatedOutput" Name="ObfuscatedOutput">
+        <Component Id="Comp_0_windows_win_x64_publish_ObfuscatedOutput_AdRev_Domain_dll">
+          <File Id="File_0_windows_win_x64_publish_ObfuscatedOutput_AdRev_Domain_dll" Source="C:\Users\HP\Documents\AdRev\AdRev.Desktop\bin\Release\net9.0-windows\win-x64\publish\ObfuscatedOutput\AdRev.Domain.dll" KeyPath="yes" />
         </Component>        </Directory>
 
         <Directory Id="Dir_0_windows_win_x64_publish_pl" Name="pl">
@@ -934,7 +942,7 @@
       <ComponentRef Id="Comp_0_windows_win_x64_publish_Microsoft_Win32_Registry_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_Microsoft_Win32_SystemEvents_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_Microsoft_Xaml_Behaviors_dll" />
-      <ComponentRef Id="Comp_0_windows_win_x64_publish_mscordaccore_amd64_amd64_9_0_1326_6317_dll" />
+      <ComponentRef Id="Comp_0_windows_win_x64_publish_mscordaccore_amd64_amd64_9_0_1426_11910_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_mscordaccore_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_mscordbi_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_mscorlib_dll" />
@@ -1243,6 +1251,7 @@
       <ComponentRef Id="Comp_0_windows_win_x64_publish_ko_UIAutomationProvider_resources_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_ko_UIAutomationTypes_resources_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_ko_WindowsBase_resources_dll" />
+      <ComponentRef Id="Comp_0_windows_win_x64_publish_ObfuscatedOutput_AdRev_Domain_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_pl_PresentationCore_resources_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_pl_PresentationFramework_resources_dll" />
       <ComponentRef Id="Comp_0_windows_win_x64_publish_pl_PresentationUI_resources_dll" />
