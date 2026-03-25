@@ -1,0 +1,40 @@
+type User @table {
+  displayName: String!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+}
+
+type Paper @table {
+  user: User!
+  title: String!
+  author: String!
+  publication: String!
+  publicationYear: Int!
+  url: String!
+  createdAt: Timestamp!
+  abstract: String
+  readStatus: Boolean
+}
+
+type Note @table {
+  user: User!
+  paper: Paper!
+  content: String!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+}
+
+type Collection @table {
+  user: User!
+  name: String!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  description: String
+}
+
+type CollectionPaper @table(key: ["collection", "paper"]) {
+  collection: Collection!
+  paper: Paper!
+  addedAt: Timestamp!
+}

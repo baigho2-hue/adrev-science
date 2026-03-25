@@ -43,12 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
-            e.preventDefault();
             const target = document.querySelector(targetId);
             if (target) {
-                const navHeight = 100;
+                e.preventDefault();
+                const navHeight = 90;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
                 window.scrollTo({
-                    top: target.offsetTop - navHeight,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
@@ -83,6 +86,95 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 6. Automatic Currency Detection Logic
+    const priceValues = document.querySelectorAll('.price-val');
+    const currSymbols = document.querySelectorAll('.curr-symbol');
+    let activeCurrency = 'USD';
+
+    const rates = {
+        XOF: { rate: 1, symbol: ' FCFA' },
+        USD: { rate: 1/610, symbol: ' $' }, // Approx base 35k FCFA -> 57$
+        EUR: { rate: 1/655.957, symbol: ' €' }
+    };
+
+    function updatePrices(currencyCode) {
+        let selected = rates[currencyCode];
+        
+        // Map XAF (Central Africa) to XOF (West Africa) as they are parity
+        if (currencyCode === 'XAF') selected = rates['XOF'];
+        
+        // Fallback to USD if currency not supported
+        if (!selected) {
+            selected = rates['USD'];
+            currencyCode = 'USD';
+        }
+
+        activeCurrency = currencyCode;
+
+        priceValues.forEach(priceEl => {
+            const basePrice = parseFloat(priceEl.getAttribute('data-base'));
+            const converted = basePrice * selected.rate;
+            
+            let formatted;
+            if (currencyCode === 'XOF' || currencyCode === 'XAF') {
+                formatted = new Intl.NumberFormat('fr-FR').format(Math.round(converted / 100) * 100); // Round to nearest 100
+            } else {
+                formatted = new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(converted);
+            }
+            
+            priceEl.textContent = formatted;
+        });
+
+        currSymbols.forEach(symbolEl => {
+            symbolEl.textContent = selected.symbol;
+        });
+    }
+
+    async function detectAndApplyCurrency() {
+        // 1. Check Cache
+        const cached = localStorage.getItem('adrev_currency');
+        if (cached) {
+            updatePrices(cached);
+            return;
+        }
+
+        // 2. Fetch from Geolocation API (ipapi.co is reliable)
+        try {
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+            const currency = data.currency || 'USD';
+            
+            localStorage.setItem('adrev_currency', currency);
+            updatePrices(currency);
+        } catch (error) {
+            console.warn('Geolocation failed, defaulting to USD');
+            updatePrices('USD');
+        }
+    }
+
+    // 7. Direct WhatsApp Purchase Bridge (+22379276470)
+    // Facilitates manual payments via Orange Money/Moov as requested.
+    window.makePayment = function(amountCFA, planName) {
+        const phoneNumber = "22379276470";
+        const message = encodeURIComponent(
+            `Bonjour AdRev Science ! 🔬🚀\n\n` +
+            `Je souhaite souscrire au plan *${planName}* (${amountCFA.toLocaleString()} FCFA/an).\n\n` +
+            `Pouvez-vous m'envoyer les instructions pour le paiement par Orange Money / Moov Money afin d'activer ma licence ?`
+        );
+        
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+        
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // Initialize with default (USD) while loading if needed, then auto-detect
+    updatePrices('USD');
+    detectAndApplyCurrency();
 
     console.log('AdRev Premium Site Core Restructured 🚀');
 });

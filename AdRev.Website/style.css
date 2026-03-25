@@ -143,6 +143,35 @@ nav {
     color: white;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.currency-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.currency-select:hover {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.currency-select option {
+    background: var(--bg-surface);
+    color: white;
+}
+
 .btn-glow {
     padding: 0.7rem 1.8rem;
     background: var(--primary);
@@ -150,6 +179,37 @@ nav {
     border-radius: 12px;
     font-weight: 700;
     box-shadow: 0 10px 20px var(--primary-glow);
+    border: none;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 10px 20px var(--primary-glow);
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid var(--glass-border);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
 }
 
 /* Hero */

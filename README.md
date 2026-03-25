@@ -52,6 +52,6 @@ Marre des protocoles rejetés pour "manque de rigueur" ou des erreurs d'échanti
 ## 🛡️ Support
 Besoin d'aide ? Contactez notre équipe support :
 📧 **Email** : support@adrev-science.com
-💬 **WhatsApp Support** : [Numéro Mali]
+💬 **WhatsApp Support** : +223 79 27 64 70
 
 © 2024-2026 AdRev Science Team. Tous droits réservés.

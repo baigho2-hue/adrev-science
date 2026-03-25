@@ -23,6 +23,7 @@
     <!-- Styling -->
     <link rel="stylesheet" href="style.css?v=2">
     <link rel="icon" type="image/x-icon" href="assets/appIcon.ico">
+    
 </head>
 
 <body>
@@ -40,9 +41,10 @@
                 <span class="logo-accent">Ad</span>Rev <span class="tagline">Science</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#suite">La Suite Suite</a></li>
+                <li><a href="#suite">La Suite Science</a></li>
                 <li><a href="#process">Méthodologie</a></li>
                 <li><a href="#collect">Collect Mobile</a></li>
+                <li><a href="#download">Téléchargements</a></li>
                 <li><a href="#licence">Tarifs</a></li>
             </ul>
             <div class="nav-actions">
@@ -232,36 +234,36 @@
                 <div class="pricing-grid">
                     <div class="price-card glass-card animate-on-scroll">
                         <span class="label">Standard</span>
-                        <div class="amount">10k<span>/an</span></div>
+                        <div class="amount"><span class="price-val" data-base="10000">10 000</span><span class="curr-symbol"> FCFA</span><span>/an</span></div>
                         <ul class="features">
                             <li>Analyses de base</li>
                             <li>Collect Mobile Solo</li>
                             <li>Support par Email</li>
                         </ul>
-                        <a href="#" class="btn secondary">Démarrer</a>
+                        <button onclick="makePayment(10000, 'Standard')" class="btn secondary">Démarrer</button>
                     </div>
                     <div class="price-card glass-card featured animate-on-scroll">
                         <div class="popular-badge">Recommandé</div>
                         <span class="label">Professionnel</span>
-                        <div class="amount">35k<span>/an</span></div>
+                        <div class="amount"><span class="price-val" data-base="35000">35 000</span><span class="curr-symbol"> FCFA</span><span>/an</span></div>
                         <ul class="features">
                             <li>Rapports Word illimités</li>
                             <li>Journal d'Audit Complet</li>
                             <li>Tests Complexes</li>
                             <li>Assistance Prioritaire</li>
                         </ul>
-                        <a href="#" class="btn primary">S'équiper maintenant</a>
+                        <button onclick="makePayment(35000, 'Professionnel')" class="btn primary">S'équiper maintenant</button>
                     </div>
                     <div class="price-card glass-card animate-on-scroll">
                         <span class="label">Elite</span>
-                        <div class="amount">75k<span>/an</span></div>
+                        <div class="amount"><span class="price-val" data-base="75000">75 000</span><span class="curr-symbol"> FCFA</span><span>/an</span></div>
                         <ul class="features">
                             <li>Analyse Qualitative</li>
                             <li>Multi-utilisateurs</li>
                             <li>Consultation Statistique</li>
                             <li>Audit sur site</li>
                         </ul>
-                        <a href="#" class="btn secondary">Choisir Elite</a>
+                        <button onclick="makePayment(75000, 'Elite')" class="btn secondary">Choisir Elite</button>
                     </div>
                 </div>
             </div>
@@ -312,19 +314,20 @@
                 <div class="footer-section animate-on-scroll">
                     <h4>Produit</h4>
                     <ul>
-                        <li><a href="#suite">La Suite Suite</a></li>
+                        <li><a href="#suite">La Suite Science</a></li>
                         <li><a href="#process">Méthodologie</a></li>
                         <li><a href="#collect">Collect Mobile</a></li>
+                        <li><a href="#download">Téléchargements</a></li>
                         <li><a href="#licence">Tarifs</a></li>
                     </ul>
                 </div>
                 <div class="footer-section animate-on-scroll">
                     <h4>Ressources</h4>
                     <ul>
-                        <li><a href="USER_MANUAL.md">Manuel Utilisateur</a></li>
+                        <li><a href="README.md">Manuel Utilisateur</a></li>
                         <li><a href="privacy.html">Confidentialité</a></li>
-                        <li><a href="mailto:baigho2@gmail.com">Contact Support</a></li>
-                        <li><a href="#">FAQ & Aide</a></li>
+                        <li><a href="mailto:support@adrev-science.com">Contact Support</a></li>
+                        <li><a href="https://wa.me/22379276470">WhatsApp Direct</a></li>
                     </ul>
                 </div>
                 <div class="footer-section footer-newsletter-box animate-on-scroll">
@@ -352,7 +355,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 
 </html>
