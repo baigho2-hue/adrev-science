@@ -1,0 +1,694 @@
+extend type Collection {
+  """
+  ✨ List `CollectionPaper` objects in a one-to-many relationship (where `CollectionPaper`.`collection` is this object).
+  """
+  collectionPapers_on_collection(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: CollectionPaper_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [CollectionPaper_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: CollectionPaper_Having
+  ): [CollectionPaper!]! @fdc_generated(from: "CollectionPaper.collection", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Paper` objects using `CollectionPaper` as the join table (a `CollectionPaper` object exists where its `collection` is this and its `paper` is that).
+  """
+  papers_via_CollectionPaper(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: CollectionPaper_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [CollectionPaper_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: CollectionPaper_Having
+  ): [Paper!]! @fdc_generated(from: "CollectionPaper", purpose: QUERY_MULTIPLE_MANY_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Collection", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Collection` table.
+  """
+  _count: Int! @fdc_generated(from: "Collection.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Collection` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Collection.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Collection` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Collection.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Collection` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Collection.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Collection` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Collection.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Collection` table where the `updatedAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  updatedAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Collection.updatedAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Collection` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Collection.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `Collection` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Collection.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `updatedAt` field in the `Collection` table.
+  """
+  updatedAt_min: Timestamp @fdc_generated(from: "Collection.updatedAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Collection` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Collection.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `updatedAt` field in the `Collection` table.
+  """
+  updatedAt_max: Timestamp @fdc_generated(from: "Collection.updatedAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Collection.id", purpose: GLOBAL_ID)
+}
+extend type CollectionPaper {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "CollectionPaper", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `CollectionPaper` table.
+  """
+  _count: Int! @fdc_generated(from: "CollectionPaper.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CollectionPaper` table where the `addedAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  addedAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CollectionPaper.addedAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CollectionPaper` table where the `collectionId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  collectionId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CollectionPaper.collectionId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `CollectionPaper` table where the `paperId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  paperId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "CollectionPaper.paperId", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `addedAt` field in the `CollectionPaper` table.
+  """
+  addedAt_min: Timestamp @fdc_generated(from: "CollectionPaper.addedAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `addedAt` field in the `CollectionPaper` table.
+  """
+  addedAt_max: Timestamp @fdc_generated(from: "CollectionPaper.addedAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "CollectionPaper.collectionId,paperId", purpose: GLOBAL_ID)
+}
+extend type Note {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Note", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Note` table.
+  """
+  _count: Int! @fdc_generated(from: "Note.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Note` table where the `content` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  content_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Note.content", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Note` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Note.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Note` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Note.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Note` table where the `paperId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  paperId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Note.paperId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Note` table where the `updatedAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  updatedAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Note.updatedAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Note` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Note.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `Note` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Note.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `updatedAt` field in the `Note` table.
+  """
+  updatedAt_min: Timestamp @fdc_generated(from: "Note.updatedAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Note` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Note.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `updatedAt` field in the `Note` table.
+  """
+  updatedAt_max: Timestamp @fdc_generated(from: "Note.updatedAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Note.id", purpose: GLOBAL_ID)
+}
+extend type Paper {
+  """
+  ✨ List `CollectionPaper` objects in a one-to-many relationship (where `CollectionPaper`.`paper` is this object).
+  """
+  collectionPapers_on_paper(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: CollectionPaper_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [CollectionPaper_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: CollectionPaper_Having
+  ): [CollectionPaper!]! @fdc_generated(from: "CollectionPaper.paper", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Note` objects in a one-to-many relationship (where `Note`.`paper` is this object).
+  """
+  notes_on_paper(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Note_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Note_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Note_Having
+  ): [Note!]! @fdc_generated(from: "Note.paper", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Collection` objects using `CollectionPaper` as the join table (a `CollectionPaper` object exists where its `paper` is this and its `collection` is that).
+  """
+  collections_via_CollectionPaper(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: CollectionPaper_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [CollectionPaper_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: CollectionPaper_Having
+  ): [Collection!]! @fdc_generated(from: "CollectionPaper", purpose: QUERY_MULTIPLE_MANY_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Paper", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Paper` table.
+  """
+  _count: Int! @fdc_generated(from: "Paper.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `abstract` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  abstract_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.abstract", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `author` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  author_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.author", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `publicationYear` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  publicationYear_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.publicationYear", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `publication` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  publication_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.publication", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `readStatus` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  readStatus_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.readStatus", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `title` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  title_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.title", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `url` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  url_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.url", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Paper` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Paper.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `publicationYear` field in the `Paper` table.
+  """
+  publicationYear_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Paper.publicationYear", purpose: QUERY_SUM)
+  """
+  ✨ Average the `publicationYear` field in the `Paper` table.
+  """
+  publicationYear_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Paper.publicationYear", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `createdAt` field in the `Paper` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Paper.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `publicationYear` field in the `Paper` table.
+  """
+  publicationYear_min: Int @fdc_generated(from: "Paper.publicationYear", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `Paper` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Paper.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `publicationYear` field in the `Paper` table.
+  """
+  publicationYear_max: Int @fdc_generated(from: "Paper.publicationYear", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Paper.id", purpose: GLOBAL_ID)
+}
+extend type User {
+  """
+  ✨ List `Collection` objects in a one-to-many relationship (where `Collection`.`user` is this object).
+  """
+  collections_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Collection_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Collection_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Collection_Having
+  ): [Collection!]! @fdc_generated(from: "Collection.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Note` objects in a one-to-many relationship (where `Note`.`user` is this object).
+  """
+  notes_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Note_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Note_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Note_Having
+  ): [Note!]! @fdc_generated(from: "Note.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Paper` objects in a one-to-many relationship (where `Paper`.`user` is this object).
+  """
+  papers_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Paper_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Paper_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Paper_Having
+  ): [Paper!]! @fdc_generated(from: "Paper.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "User", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `User` table.
+  """
+  _count: Int! @fdc_generated(from: "User.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `displayName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  displayName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.displayName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `photoUrl` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  photoUrl_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.photoUrl", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `User` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `User` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "User.id", purpose: GLOBAL_ID)
+}

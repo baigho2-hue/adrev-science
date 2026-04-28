@@ -1,0 +1,552 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Collection` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  collection_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Collection_Data!
+  ): Collection_KeyOutput! @fdc_generated(from: "Collection", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `CollectionPaper` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  collectionPaper_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: CollectionPaper_Data!
+  ): CollectionPaper_KeyOutput! @fdc_generated(from: "CollectionPaper", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Note` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  note_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Note_Data!
+  ): Note_KeyOutput! @fdc_generated(from: "Note", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Paper` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  paper_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Paper_Data!
+  ): Paper_KeyOutput! @fdc_generated(from: "Paper", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `User` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Collection` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  collection_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Collection_Data!]!
+  ): [Collection_KeyOutput!]! @fdc_generated(from: "Collection", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `CollectionPaper` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  collectionPaper_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [CollectionPaper_Data!]!
+  ): [CollectionPaper_KeyOutput!]! @fdc_generated(from: "CollectionPaper", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Note` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  note_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Note_Data!]!
+  ): [Note_KeyOutput!]! @fdc_generated(from: "Note", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Paper` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  paper_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Paper_Data!]!
+  ): [Paper_KeyOutput!]! @fdc_generated(from: "Paper", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `User` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  user_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Collection` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Collection`.
+  """
+  collection_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Collection_Data!
+  ): Collection_KeyOutput! @fdc_generated(from: "Collection", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `CollectionPaper` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `CollectionPaper`.
+  """
+  collectionPaper_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: CollectionPaper_Data!
+  ): CollectionPaper_KeyOutput! @fdc_generated(from: "CollectionPaper", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Note` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Note`.
+  """
+  note_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Note_Data!
+  ): Note_KeyOutput! @fdc_generated(from: "Note", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Paper` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Paper`.
+  """
+  paper_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Paper_Data!
+  ): Paper_KeyOutput! @fdc_generated(from: "Paper", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `User` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: User_Data!
+  ): User_KeyOutput! @fdc_generated(from: "User", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Collection` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Collection`.
+  """
+  collection_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Collection_Data!]!
+  ): [Collection_KeyOutput!]! @fdc_generated(from: "Collection", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `CollectionPaper` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `CollectionPaper`.
+  """
+  collectionPaper_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [CollectionPaper_Data!]!
+  ): [CollectionPaper_KeyOutput!]! @fdc_generated(from: "CollectionPaper", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Note` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Note`.
+  """
+  note_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Note_Data!]!
+  ): [Note_KeyOutput!]! @fdc_generated(from: "Note", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Paper` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Paper`.
+  """
+  paper_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Paper_Data!]!
+  ): [Paper_KeyOutput!]! @fdc_generated(from: "Paper", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `User` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `User`.
+  """
+  user_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [User_Data!]!
+  ): [User_KeyOutput!]! @fdc_generated(from: "User", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Collection` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Collection` or `null` if not found.
+  """
+  collection_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Collection_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Collection_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Collection_Data!
+  ): Collection_KeyOutput @fdc_generated(from: "Collection", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `CollectionPaper` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `CollectionPaper` or `null` if not found.
+  """
+  collectionPaper_update(
+    """
+    The key used to identify the object.
+    """
+    key: CollectionPaper_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: CollectionPaper_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: CollectionPaper_Data!
+  ): CollectionPaper_KeyOutput @fdc_generated(from: "CollectionPaper", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Note` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Note` or `null` if not found.
+  """
+  note_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Note_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Note_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Note_Data!
+  ): Note_KeyOutput @fdc_generated(from: "Note", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Paper` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Paper` or `null` if not found.
+  """
+  paper_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Paper_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Paper_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Paper_Data!
+  ): Paper_KeyOutput @fdc_generated(from: "Paper", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `User` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `User` or `null` if not found.
+  """
+  user_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: User_Data!
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Collection` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  collection_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Collection_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Collection_Data!
+  ): Int! @fdc_generated(from: "Collection", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `CollectionPaper` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  collectionPaper_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: CollectionPaper_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: CollectionPaper_Data!
+  ): Int! @fdc_generated(from: "CollectionPaper", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Note` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  note_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Note_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Note_Data!
+  ): Int! @fdc_generated(from: "Note", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Paper` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  paper_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Paper_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Paper_Data!
+  ): Int! @fdc_generated(from: "Paper", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `User` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  user_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: User_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: User_Data!
+  ): Int! @fdc_generated(from: "User", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Collection` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  collection_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Collection_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Collection_FirstRow
+  ): Collection_KeyOutput @fdc_generated(from: "Collection", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `CollectionPaper` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  collectionPaper_delete(
+    """
+    The key used to identify the object.
+    """
+    key: CollectionPaper_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: CollectionPaper_FirstRow
+  ): CollectionPaper_KeyOutput @fdc_generated(from: "CollectionPaper", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Note` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  note_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Note_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Note_FirstRow
+  ): Note_KeyOutput @fdc_generated(from: "Note", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Paper` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  paper_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Paper_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Paper_FirstRow
+  ): Paper_KeyOutput @fdc_generated(from: "Paper", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `User` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  user_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: User_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: User_FirstRow
+  ): User_KeyOutput @fdc_generated(from: "User", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Collection` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  collection_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Collection_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Collection", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `CollectionPaper` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  collectionPaper_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: CollectionPaper_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "CollectionPaper", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Note` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  note_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Note_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Note", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Paper` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  paper_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Paper_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Paper", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `User` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  user_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: User_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "User", purpose: DELETE_MULTIPLE)
+}

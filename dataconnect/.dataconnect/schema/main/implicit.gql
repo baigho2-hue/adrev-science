@@ -1,0 +1,50 @@
+extend type Collection {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Collection", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Collection`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  userId: UUID! @fdc_generated(from: "Collection.user", purpose: IMPLICIT_REF_FIELD)
+}
+extend type CollectionPaper {
+  """
+  ✨ Implicit foreign key field based on `CollectionPaper`.`collection`. It must match the value of `Collection`.`id`. See `@ref` for how to customize it.
+  """
+  collectionId: UUID! @fdc_generated(from: "CollectionPaper.collection", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `CollectionPaper`.`paper`. It must match the value of `Paper`.`id`. See `@ref` for how to customize it.
+  """
+  paperId: UUID! @fdc_generated(from: "CollectionPaper.paper", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Note {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Note", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Note`.`paper`. It must match the value of `Paper`.`id`. See `@ref` for how to customize it.
+  """
+  paperId: UUID! @fdc_generated(from: "Note.paper", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Note`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  userId: UUID! @fdc_generated(from: "Note.user", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Paper {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Paper", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Paper`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
+  """
+  userId: UUID! @fdc_generated(from: "Paper.user", purpose: IMPLICIT_REF_FIELD)
+}
+extend type User {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "User", purpose: IMPLICIT_KEY_FIELD)
+}
