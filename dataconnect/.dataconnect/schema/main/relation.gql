@@ -148,7 +148,7 @@ extend type Collection {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Collection.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "Collection.id", purpose: ENTITY_ID)
 }
 extend type CollectionPaper {
   """
@@ -197,7 +197,7 @@ extend type CollectionPaper {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "CollectionPaper.collectionId,paperId", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "CollectionPaper.collectionId,paperId", purpose: ENTITY_ID)
 }
 extend type Note {
   """
@@ -281,7 +281,7 @@ extend type Note {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Note.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "Note.id", purpose: ENTITY_ID)
 }
 extend type Paper {
   """
@@ -521,7 +521,7 @@ extend type Paper {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "Paper.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "Paper.id", purpose: ENTITY_ID)
 }
 extend type User {
   """
@@ -690,5 +690,5 @@ extend type User {
   """
   A generated field that is used for caching results in SDKs.
   """
-  _id: ID! @fdc_generated(from: "User.id", purpose: GLOBAL_ID)
+  _id: ID! @fdc_generated(from: "User.id", purpose: ENTITY_ID)
 }

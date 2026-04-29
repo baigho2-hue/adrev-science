@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Text.RegularExpressions;
 using AdRev.Core.Services;
 using AdRev.Domain.Models;
 using AdRev.Desktop.Services;
@@ -31,7 +32,7 @@ namespace AdRev.Desktop
             }
 
             string type = (LicenseTypeBox.SelectedItem as System.Windows.Controls.ComboBoxItem)?.Content?.ToString() ?? "Standard";
-            string orderRequest = $"DESTINATAIRE : baigho2@gmail.com\nCOMMAND ADREV\n------------------\nNOM : {NameBox.Text} {TitleBox.Text}\nEMAIL : {EmailBox.Text}\nTYPE : {type}\nHWID : {HwidBox.Text}\nPAIEMENT : [Joindre Capture/Facture]\n------------------";
+            string orderRequest = $"DESTINATAIRE : baigho2@gmail.com\nCOMMANDE ADREV\n------------------\nNOM : {NameBox.Text} {TitleBox.Text}\nEMAIL : {EmailBox.Text}\nTYPE : {type}\nHWID : {HwidBox.Text}\nPAIEMENT : [Joindre Capture/Facture]\n------------------";
             
             Clipboard.SetText(orderRequest);
             MessageBox.Show($"Les informations de commande ont été copiées !\n\nEnvoyez ce message à : baigho2@gmail.com\nAccompagné de votre preuve de paiement pour obtenir votre clé.", "Demande Copiée", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -84,7 +85,7 @@ namespace AdRev.Desktop
                 return false;
             }
 
-            if (!EmailBox.Text.Contains("@"))
+            if (!Regex.IsMatch(EmailBox.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                  MessageBox.Show("Veuillez entrer une adresse email valide.", "Email Invalide", MessageBoxButton.OK, MessageBoxImage.Warning);
                  return false;
@@ -96,6 +97,13 @@ namespace AdRev.Desktop
         {
             string title = (TitleBox.SelectedItem as System.Windows.Controls.ComboBoxItem)?.Content?.ToString() ?? "";
             
+            var profileService = new ResearcherProfileService();
+            var profile = profileService.GetProfile();
+            profile.Title = title;
+            profile.FullName = NameBox.Text;
+            profile.Institution = ""; // Can be added later
+            profileService.SaveProfile(profile);
+
             Profile = new UserProfile
             {
                 Title = title,

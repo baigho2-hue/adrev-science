@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -217,11 +217,11 @@ namespace AdRev.Desktop
                 {
                     var project = _projectService.ImportFromFolder(dialog.FolderName);
                     LoadProjects();
-                    MessageBox.Show($"Projet '{project.Title}' importé.");
+                    MessageBox.Show($"Projet '{project.Title}' importé.", "Importation réussie", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erreur: {ex.Message}");
+                    MessageBox.Show($"Erreur: {ex.Message}", "Erreur d'importation", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -277,7 +277,7 @@ namespace AdRev.Desktop
         private void Maximize_Click(object sender, RoutedEventArgs e) => WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         private void Close_Click(object sender, RoutedEventArgs e) => Close();
 
-        private void OpenUpgrade_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Visitez adrev-science.com");
+        private void OpenUpgrade_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Visitez adrev-science.com", "Mise à niveau", MessageBoxButton.OK, MessageBoxImage.Information);
         private void OpenActivation_Click(object sender, RoutedEventArgs e)
         {
             var activation = new ActivationWindow();

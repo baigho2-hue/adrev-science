@@ -23,7 +23,8 @@ namespace AdRev.Desktop
             if (ex == null) return;
             string logFile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "crash.log");
             string message = $"{DateTime.Now}: [{source}] {ex.Message}\nStack Trace: {ex.StackTrace}\n\n";
-            try { System.IO.File.AppendAllText(logFile, message); } catch { }
+            try { System.IO.File.AppendAllText(logFile, message); } 
+            catch (Exception logEx) { System.Diagnostics.Debug.WriteLine($"Erreur d'écriture log: {logEx.Message}"); }
         }
 
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
@@ -51,11 +52,11 @@ namespace AdRev.Desktop
                 // 1. Check if License is Valid
                 if (!_licensingService.IsActivated(out string _))
                 {
-                    // Show Activation Window
-                    var activationWindow = new ActivationWindow();
-                    bool? result = activationWindow.ShowDialog();
+                    // Show Welcome Window for first time users
+                    var welcomeWindow = new WelcomeWindow();
+                    bool? result = welcomeWindow.ShowDialog();
 
-                    if (result != true)
+                    if (result != true && !_licensingService.IsActivated(out _))
                     {
                         // User closed activation or it failed
                         Shutdown();
